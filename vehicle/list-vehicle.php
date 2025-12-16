@@ -5,5 +5,5 @@ require dirname(__DIR__) . '/connexiondb.php';
 
 $vehicleArray = listerVehicles($pdo);
 
-include $_SERVER['DOCUMENT_ROOT'] . 'php-taxis/views/vehicle/list-vehicle-view.php';
+include  PATH_PROJET . '/views/vehicle/list-vehicle-view.php';
 ?>
