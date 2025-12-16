@@ -26,8 +26,8 @@
                     <td class="table-secondary"><?= $vehicle['modele'] ?></td>
                     <td class="table-secondary"><?= $vehicle['couleur'] ?></td>
                     <td class="table-secondary">
-                        <a href="" class="btn btn-info">Edit</a>
-                        <a href="" class="btn btn-info">Supprimer</a>
+                        <a href="<?= WEB_ROOT ?>/vehicle/edit-vehicle.php?vehicleId=<?= $vehicle['id_vehicule'] ?>" class="btn btn-info">Edit</a>
+                        <a href="<?= WEB_ROOT ?>/vehicle/delete-vehicle.php?vehicleId=<?= $vehicle['id_vehicule'] ?>" class="btn btn-info" onclick="return confirm('Etes-vous sur de vouloir supprimer ce véhicule ?')">Supprimer</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
