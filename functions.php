@@ -24,5 +24,19 @@ function listerVehicles($pdo){
     return $vehicles;
 }
 
+
+function deleteVehicle($pdo, $id){
+    $stm = $pdo->prepare("DELETE FROM vehicule WHERE id_vehicule = :id_vehicule");
+    $stm->bindParam(':id_vehicule', $id, PDO::PARAM_INT);
+    $suppResult = $stm->execute();
+    return $suppResult;
+}
+
+function clean ($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 ?>
 
