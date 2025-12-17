@@ -89,7 +89,7 @@ function updateVehicle($pdo, $id, $marque, $modele, $couleur, $immatriculation)
 
 function getNBLineTable($pdo, $table)
 {
-    $sql = "SELECT COUNT(*) as nb FROM '" . $table . "'";
+    $sql = "SELECT COUNT(*) as nb FROM `" . $table . "`";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $count = $stmt->fetchColumn();
