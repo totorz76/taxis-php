@@ -8,23 +8,23 @@
 </head>
 <body>
     <main class="container">
-        <h1 class="text-primary">Ajouter un véhicule</h1>
-        <form action="" method="POST">
+        <h1 class="text-primary">Editer un véhicule</h1>
+        <form action="?vehicleId=<?= $vehicle['id_vehicule']; ?>" method="POST">
             <div class="mb-3">
                 <label for="marque" class="form-label">Marque</label>
-                <input type="text" class="form-control" id="marque" name="marque" required>
+                <input type="text" class="form-control" id="marque" name="marque" value="<?= $vehicle['marque']; ?>" required>
             </div>
             <div class="mb-3">
                 <label for="modele" class="form-label">Modèle</label>
-                <input type="text" class="form-control" id="modele" name="modele" required>
+                <input type="text" class="form-control" id="modele" name="modele" value="<?= $vehicle['modele']; ?>" required>
             </div>
             <div class="mb-3">
                 <label for="couleur" class="form-label">Couleur</label>
-                <input type="text" class="form-control" id="couleur" name="couleur" required>
+                <input type="text" class="form-control" id="couleur" name="couleur" value="<?= $vehicle['couleur']; ?>" required>
             </div>
             <div class="mb-3">
                 <label for="immatriculation" class="form-label">Immatriculation</label>
-                <input type="text" class="form-control" id="immatriculation" name="immatriculation" required>
+                <input type="text" class="form-control" id="immatriculation" name="immatriculation" value="<?= $vehicle['immatriculation']; ?>" required>
             </div>
             <button type="submit" class="btn btn-primary" name="envoyer">Ajouter</button>
         </form>
