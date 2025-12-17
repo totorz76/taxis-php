@@ -13,13 +13,13 @@
         <?php
         if (count($vehicleArray) === 0) :
             echo '<h3>Aucun véhicule enregistré</h3>';
-            echo '<a href="' . WEB_ROOT . '/vehicle/add-vehicle.php" class="btn btn-primary">Ajouter un véhicule</a>';
+            echo '<a href="'.WEB_ROOT.'/vehicle/add-vehicle.php" class="btn btn-secondary">Ajouter un véhicule</a>';
             die();
         endif;
 
         ?>
         <h1>Liste des véhicules</h1>
-        <a href="<? WEB_ROOT . './vehicle/add-vehicle.php' ?>">Ajouter un véhicule</a>
+        <a href="<?= WEB_ROOT . './vehicle/add-vehicle.php' ?>" class="btn btn-secondary">Ajouter un véhicule</a>
         <table class="table table-hover">
             <thead>
                 <tr class="table-primary">

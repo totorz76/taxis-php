@@ -32,10 +32,9 @@ function deleteVehicle($pdo, $id){
     return $suppResult;
 }
 
-function clean ($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
+function clean ($dataParam) {
+    $data = trim($dataParam);
+    $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
     return $data;
 }
 ?>
