@@ -27,10 +27,25 @@ function listerVehicles($pdo)
     return $vehicles;
 }
 
+function listerDrivers($pdo)
+{
+    $sql = "SELECT * FROM conducteur";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $drivers = $stmt->fetchAll();
+    return $drivers;
+}
 
 function deleteVehicle($pdo, $id)
 {
     $stm = $pdo->prepare("DELETE FROM vehicule WHERE id_vehicule = :id");
+    $stm->bindParam(':id', $id, PDO::PARAM_INT);
+    $suppResult = $stm->execute();
+    return $suppResult;
+}
+function deleteDriver($pdo, $id)
+{
+    $stm = $pdo->prepare("DELETE FROM conducteur WHERE id_conducteur = :id");
     $stm->bindParam(':id', $id, PDO::PARAM_INT);
     $suppResult = $stm->execute();
     return $suppResult;
@@ -51,10 +66,18 @@ function getVehicle($pdo, $id)
     $vehicle = $stmt->fetch();
     return $vehicle;
 }
+function getDriver($pdo, $id)
+{
+    $sql = "SELECT * FROM conducteur WHERE id_conducteur = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['id' => $id]);
+    $driver = $stmt->fetch();
+    return $driver;
+}
 
 function getLastInsertId($pdo)
 {
-    $sql="SELECT LAST_INSERT_ID()";
+    $sql = "SELECT LAST_INSERT_ID()";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $last_insert_id = $stmt->fetch();
@@ -73,6 +96,15 @@ function addVehicle($pdo, $marque, $modele, $couleur, $immatriculation)
         'immatriculation' => $immatriculation
     ]);
 }
+function addDriver($pdo, $nom, $prenom)
+{
+    $sql = "INSERT INTO conducteur (nom, prenom) VALUES (:nom, :prenom)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        'nom' => $nom,
+        'prenom' => $prenom
+    ]);
+}
 
 function updateVehicle($pdo, $id, $marque, $modele, $couleur, $immatriculation)
 {
@@ -84,6 +116,16 @@ function updateVehicle($pdo, $id, $marque, $modele, $couleur, $immatriculation)
         'modele' => $modele,
         'couleur' => $couleur,
         'immatriculation' => $immatriculation
+    ]);
+}
+function updateDriver($pdo, $id, $nom, $prenom)
+{
+    $sql = "UPDATE conducteur SET nom = :nom, prenom = :prenom WHERE id_conducteur = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        'id' => $id,
+        'nom' => $nom,
+        'prenom' => $prenom
     ]);
 }
 
