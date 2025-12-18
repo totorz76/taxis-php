@@ -2,6 +2,8 @@
 include 'functions.php';
 require 'connexiondb.php';
 
+require PATH_PROJET . '/views/partials/header.php';
+
 ?>
 
 <a href="./vehicle/list-vehicle.php">Liste des véhicules</a>

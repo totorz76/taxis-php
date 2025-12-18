@@ -13,12 +13,15 @@
         <?php
         if (count($vehicleArray) === 0) :
             echo '<h3>Aucun véhicule enregistré</h3>';
-            echo '<a href="'.WEB_ROOT.'/vehicle/add-vehicle.php" class="btn btn-secondary mb-3">Ajouter un véhicule</a>';
+            echo '<a href="' . WEB_ROOT . '/vehicle/add-vehicle.php" class="btn btn-secondary mb-3">Ajouter un véhicule</a>';
             die();
         endif;
 
         ?>
         <h1 class="text-primary">Liste des véhicules</h1>
+        <?php
+        require PATH_PROJET . '/views/partials/header.php';
+        ?>
         <a href="<?= WEB_ROOT . './vehicle/add-vehicle.php' ?>" class="btn btn-secondary mb-3">Ajouter un véhicule</a>
         <table class="table table-hover">
             <thead>
